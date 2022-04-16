@@ -1,0 +1,29 @@
+create database v;
+use v;
+create table cus(
+    id varchar(10) primary key ,
+    username varchar(15)
+
+);
+create table acc(
+    id varchar(10) primary key ,
+    balance integer,
+    foreign key (id) references cus(id)
+);
+select * from cus;
+alter table cus add column email varchar(15) unique ;
+insert into cus values ('4','Faten','Faten@gmail.com');
+insert into cus values ('5','fa','Fa@gmail.com');
+
+select * from cus;
+select id, email from cus;
+insert into acc values ('4','100');
+insert into acc values ('5','200');
+select * from acc where balance >100 ;
+update acc set balance=500 where id='4';
+select * from acc ;
+alter table acc add column phN varchar(10);
+select * from acc;
+alter table acc drop column phN;
+select * from acc;
+delete from acc where id='4';
